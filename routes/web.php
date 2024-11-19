@@ -18,6 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/', function(){
-//     return view('allAlbum');
-// })
+Route::get("/albums", [Controllerphoto::class, 'albums'])->name('albums');
