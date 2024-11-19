@@ -15,7 +15,7 @@ use App\Http\Controllers\Controlleralbums;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get("/albums", [Controlleralbums::class, 'albums'])->name('albums');

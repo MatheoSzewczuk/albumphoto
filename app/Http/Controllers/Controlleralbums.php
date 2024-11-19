@@ -10,10 +10,10 @@ class Controlleralbums extends Controller
         return view("index");
     }
 
-        public function albums(){
-                $albums = DB::select("SELECT * FROM albums");
-                return view('albums', ['albums' =>$albums]);
-            }
+    public function albums(){
+            $albums = DB::select("SELECT * FROM albums");
+            return view('albums', ['albums' =>$albums]);
+    }
 
 }
 
