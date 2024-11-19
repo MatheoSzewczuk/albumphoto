@@ -4,7 +4,7 @@
 
 <ul>
     @foreach($albums as $album)
-        <li><a href="{{route("albums", ['id' => $album->id])}}">{{$album->titre}}</li>
+        <li><a href="">{{$album->titre}}</li>
     @endforeach
 </ul>
 

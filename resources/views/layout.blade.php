@@ -11,8 +11,8 @@
     
 <nav>
     <a href="/">Home Page</a>
-    <a href="{{route("Album")}}">Albums</a>
-    <a href="{{route("mesAlbums")}}">Mes Albums</a>
+    <a href="{{route("albums")}}">Albums</a>
+    <a href="">Mes Albums</a>
 
 </nav>
 
