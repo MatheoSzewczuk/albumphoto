@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Controlleralbums;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/albums", [Controllerphoto::class, 'albums'])->name('albums');
+Route::get("/albums", [Controlleralbums::class, 'albums'])->name('albums');
