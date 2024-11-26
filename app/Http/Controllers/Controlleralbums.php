@@ -15,5 +15,8 @@ class Controlleralbums extends Controller
             return view('albums', ['albums' =>$albums]);
     }
 
+    function publier(){
+        return view("publier");
+    }
 }
 ?>

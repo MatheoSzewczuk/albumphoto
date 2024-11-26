@@ -20,3 +20,6 @@ Route::get('/', function () {
 });
 
 Route::get("/albums", [Controlleralbums::class, 'albums'])->name('albums');
+
+Route::get("/publier", [Controlleralbums::class, 'publier'])->name('publier');
+
