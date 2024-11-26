@@ -12,7 +12,7 @@
 <nav>
     <a href="/">Home Page</a>
     <a href="{{route("albums")}}">Albums</a>
-    <a href="""{{route("publier")}}">Publier un album</a>
+    <a href="{{route("publier")}}">Publier un album</a>
 
 </nav>
 
