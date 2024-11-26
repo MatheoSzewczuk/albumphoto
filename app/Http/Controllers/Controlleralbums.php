@@ -16,5 +16,4 @@ class Controlleralbums extends Controller
     }
 
 }
-
 ?>
