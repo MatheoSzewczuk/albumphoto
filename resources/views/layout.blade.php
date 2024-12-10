@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Album Photo</title>
-    <link rel="stylesheet" type="text/css" href="{{env("APP_URL")}}/css/app.css">
+    <link rel="stylesheet" href="{{asset('app.css')}}">
 
 </head>
 <body>
