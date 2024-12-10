@@ -86,7 +86,7 @@ li {
     margin-bottom: 30px;
 }
 
-.add-album {
+.add-photo {
     background-color: #C4C4C4;
     margin: 0 auto;
     width: 300px;
@@ -101,7 +101,7 @@ li {
     font-weight: bold;
 }
 
-.add-album .plus-sign {
+.add-photo .plus-sign {
     font-size: 24px;
     margin-top: 10px;
 }
