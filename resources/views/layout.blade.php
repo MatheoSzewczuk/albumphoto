@@ -12,7 +12,6 @@
 <nav>
     <a href="/">Home Page</a>
     <a href="{{route("albums")}}">Albums</a>
-    <a href="{{route("ajouter")}}">Ajouter un album</a>
 
 </nav>
 

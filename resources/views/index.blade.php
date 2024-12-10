@@ -5,7 +5,7 @@
     <div class="search-bar">
         <input type="text" placeholder="Rechercher par tag/utilisateur">
     </div>
-    <div class="add-album">
+    <div class="add-photo">
         <p>Dernier album</p>
     </div>
     <div class="arrow-down">
