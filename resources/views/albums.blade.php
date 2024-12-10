@@ -9,7 +9,7 @@
     <ul>
         @foreach($albums as $album)
             <li>
-                <a href="">
+                <a href="{{route("detail", ['id' => $album->id]) }}">
                     <div class="album-card">
                         <span class="icon">
                 

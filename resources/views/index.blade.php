@@ -1,6 +1,7 @@
 @extends("layout")
 
 @section("contenu")
+<a href="{{route("albums")}}">
 <div class="container">
     <div class="search-bar">
         <input type="text" placeholder="Rechercher par tag/utilisateur">
@@ -12,4 +13,5 @@
         <span>&#9660;</span>
     </div>
 </div>
+</a>
 @endsection

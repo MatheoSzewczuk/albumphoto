@@ -20,5 +20,6 @@ Route::get('/', function () {
 });
 
 Route::get("/albums", [Controlleralbums::class, 'albums'])->name('albums');
-Route::get("/ajouter", [Controlleralbums::class, 'ajouter'])->name('ajouter');
+
+Route::get("/detail/{id}", [Controlleralbums::class, 'detail'])->name('detail');
 
