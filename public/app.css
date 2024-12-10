@@ -3,6 +3,23 @@ body {
     font-family: Arial, sans-serif;
 }
 
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 10px;
+}
+
+a:hover{
+    color: rgb(255, 188, 255);
+    text-shadow: rgb(224, 72, 255);
+}
+
+nav {
+    background-color: rgba(92, 0, 104, 0.373);
+    padding: 20px;
+    margin: 10px;
+}
+
 /* Page albums */
 
 .pageAlbums {
