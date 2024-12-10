@@ -15,8 +15,13 @@ class Controlleralbums extends Controller
             return view('albums', ['albums' =>$albums]);
     }
 
-    function ajouter(){
-        return view("ajouter");
-    }
+    // function ajouter(){
+    //     return view("ajouter");
+    // }
+
+    public function detail($id){
+            $album = DB::select("SELECT * FROM photos WHERE album_id=?", [$id]);
+            return view('detail', ['album' =>$album]);
+}
 }
 ?>
