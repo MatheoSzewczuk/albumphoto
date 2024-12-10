@@ -1,13 +1,14 @@
 @extends("layout")
 
 @section("contenu")
-<a href="{{route("albums")}}">
+
 <div class="container">
     <div class="search-bar">
         <input type="text" placeholder="Rechercher par tag/utilisateur">
     </div>
+    <a href="{{route("albums")}}">
     <div class="add-photo">
-        <p>Dernier album</p>
+        <p>Voir albums</p>
     </div>
     <div class="arrow-down">
         <span>&#9660;</span>
