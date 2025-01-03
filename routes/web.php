@@ -23,3 +23,11 @@ Route::get("/albums", [Controlleralbums::class, 'albums'])->name('albums');
 
 Route::get("/detail/{id}", [Controlleralbums::class, 'detail'])->name('detail');
 
+// Route pour afficher la page d'ajout de photo
+Route::get('/detail/{id}/ajouter', [Controlleralbums::class, 'ajouter'])->name('album.ajouter');
+
+
+
+// Route pour ajouter la photo (enregistrement dans la base de données)
+Route::post('/detail/{id}/ajouter', [Controlleralbums::class, 'store'])->name('album.store');
+

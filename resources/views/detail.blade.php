@@ -6,12 +6,13 @@
         <div class="search-bar">
             <input type="text" placeholder="Rechercher par tag/utilisateur">
             </div>
-            <a href="">
+            <a href="{{ route('album.ajouter', ['id' => $album->id]) }}"></a>
+
                 <div class="add-photo">
                 <p>Ajouter une photo</a></p>
                 <div class="plus-sign">+</div>
-                <a href="">
             </div>
+                <a href="">
                 <div class="supp-photo">
                 <p>Supprimer une photo</a></p>
                 <div class="moins-sign">-</div>
