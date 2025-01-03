@@ -118,6 +118,21 @@ li {
     font-weight: bold;
 }
 
+.supp-photo {
+    background-color: #C4C4C4;
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .add-photo .plus-sign {
     font-size: 24px;
     margin-top: 10px;
