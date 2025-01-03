@@ -144,3 +144,16 @@ li {
     font-size: 30px;
     color: white;
 }
+
+/* fonction js */
+
+.photo {
+    height: 500px; /* Taille normale */
+    transition: transform 0.3s ease, width 0.3s ease; /* Animation fluide */
+    cursor: pointer;
+  }
+  
+  .photo.en-grand {
+    width: 80%; /* Taille agrandie (par exemple) */
+    transform: scale(1.2); /* Zoom avec un effet de mise en valeur */
+  }

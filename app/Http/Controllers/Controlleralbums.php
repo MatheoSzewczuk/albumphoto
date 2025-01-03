@@ -23,5 +23,9 @@ class Controlleralbums extends Controller
             $album = DB::select("SELECT * FROM photos WHERE album_id=?", [$id]);
             return view('detail', ['album' =>$album]);
 }
+    public function supprimer($id){
+            $album = DB::select("DELETE FROM photos WHERE photos_id=?", [$id]);
+            return view('detail', ['album' =>$album]);
+    }
 }
 ?>

@@ -20,6 +20,6 @@
     </div>
 </a>
 @foreach ($album as $photo)
-<img src="{{$photo -> url}}">
+<img class="photo" src="{{$photo -> url}}">
 @endforeach
 @endsection

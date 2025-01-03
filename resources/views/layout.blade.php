@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Album Photo</title>
     <link rel="stylesheet" href="{{asset('app.css')}}">
+    <script src="agrandir.js" defer> </script>
 
 </head>
 <body>
