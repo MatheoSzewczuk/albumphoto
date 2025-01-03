@@ -154,6 +154,14 @@ li {
   }
   
   .photo.en-grand {
-    width: 80%; /* Taille agrandie (par exemple) */
-    transform: scale(1.2); /* Zoom avec un effet de mise en valeur */
+    position: fixed; /* Fixe l'image en plein écran sur la fenêtre */
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% de la largeur de la fenêtre */
+    height: 100vh; /* 100% de la hauteur de la fenêtre */
+    background-color: rgba(0, 0, 0, 0.8); /* Fond sombre semi-transparent */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Assure que l'image soit au-dessus des autres éléments */
+    object-fit: contain;
   }
