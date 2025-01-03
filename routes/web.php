@@ -23,4 +23,4 @@ Route::get("/albums", [Controlleralbums::class, 'albums'])->name('albums');
 
 Route::get("/detail/{id}", [Controlleralbums::class, 'detail'])->name('detail');
 
-
+Route::delete('/album/{albumId}/photo/{photoId}', [Controlleralbums::class, 'delete'])->name('photos.delete');

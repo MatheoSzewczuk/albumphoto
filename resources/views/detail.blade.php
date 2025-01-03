@@ -22,4 +22,5 @@
 @foreach ($album as $photo)
 <img class="photo" src="{{$photo -> url}}">
 @endforeach
+
 @endsection
