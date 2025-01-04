@@ -34,4 +34,6 @@ public function SupprimerPhoto($id)
         return back()->with('success', 'Photo supprimée avec succès.');
     }
 }
+
+
 ?>

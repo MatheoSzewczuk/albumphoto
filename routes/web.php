@@ -22,7 +22,8 @@ Route::get('/', function () {
 Route::get("/albums", [Controlleralbums::class, 'albums'])->name('albums');
 
 Route::get("/detail/{id}", [Controlleralbums::class, 'detail'])->name('detail');
+Route::get("/ajouter/{id}", [Controlleralbums::class, 'ajouter'])->name('ajouter');
 
-Route::post('/albums/{id}/photos/upload', [PhotoController::class, 'upload'])->name('photos.upload');
+Route::post('/albums/{id}/photos/upload', [Controlleralbums::class, 'upload'])->name('photos.upload');
 
-Route::delete('/photos/{id}', [PhotoController::class, 'SupprimerPhoto'])->name('photos.SupprimerPhoto');
+Route::delete('/photos/{id}', [Controlleralbums::class, 'SupprimerPhoto'])->name('photos.SupprimerPhoto');
