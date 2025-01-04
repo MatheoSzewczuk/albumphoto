@@ -21,27 +21,17 @@ class Controlleralbums extends Controller
             $album = DB::select("SELECT * FROM photos WHERE album_id=?", [$id]);
             return view('detail', ['album' =>$album]);
 }
-    // public function supprimer($id){
-    //         $album = DB::select("DELETE FROM photos WHERE photos_id=?", [$id]);
-    //         return view('detail', ['album' =>$album]);
-    // }
-
-    
-        // Méthode pour supprimer une photo d'un album
-    public function destroy($albumId, $photoId)
+public function SupprimerPhoto($id)
     {
-        // Trouver l'album par son ID
-        $album = Album::findOrFail($albumId);
+        $photo = Photo::findOrFail($id);
 
-        // Trouver la photo à supprimer
-        $photo = $album->photos()->findOrFail($photoId); // Si vous avez une relation avec photos()
+        // Supprimer le fichier si la photo est stockée localement
+        if ($photo->url && Storage::exists(str_replace('/storage', 'public', $photo->url))) {
+            Storage::delete(str_replace('/storage', 'public', $photo->url));
+        }
 
-        // Supprimer la photo
         $photo->delete();
-
-        // Rediriger l'utilisateur avec un message de succès
-        return redirect()->route('albums.show', ['id' => $albumId])
-                         ->with('success', 'La photo a été supprimée avec succès.');
+        return back()->with('success', 'Photo supprimée avec succès.');
     }
 }
 ?>
