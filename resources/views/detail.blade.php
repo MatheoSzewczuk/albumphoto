@@ -21,8 +21,9 @@
     </div>
 </div>
 </a>
+<div class="photos">
 @foreach ($album as $photo)
 <img class="photo" src="{{$photo -> url}}">
 @endforeach
-
+</div>
 @endsection

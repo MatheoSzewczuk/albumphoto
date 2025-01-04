@@ -151,13 +151,33 @@ li {
 
 }
 
+.photos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+    gap: 30px; 
+    margin-top: 80px;
+}
+
+.photo img {
+    width: 100%; /* Les images remplissent leur colonne */
+    height: 200px; /* Fixez une hauteur identique */
+    object-fit: cover; /* Ajuste l'image pour qu'elle remplisse sans déformation */
+  }
+
 /* fonction js */
 
 .photo {
     height: 500px; /* Taille normale */
     transition: transform 0.3s ease, width 0.3s ease; /* Animation fluide */
     cursor: pointer;
+    transition: 0.1s;
   }
+
+.photo:hover{
+    height: 510px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: 0.1s;
+}
   
   .photo.en-grand {
     position: fixed; /* Fixe l'image en plein écran sur la fenêtre */
