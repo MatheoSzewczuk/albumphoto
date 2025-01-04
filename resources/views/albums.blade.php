@@ -12,7 +12,7 @@
                 <a href="{{route("detail", ['id' => $album->id]) }}">
                     <div class="album-card">
                         <span class="icon">
-                
+
                         </span>
                         <span class="title">{{$album->titre}}</span>
                     </div>
