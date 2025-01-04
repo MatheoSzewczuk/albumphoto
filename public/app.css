@@ -1,3 +1,8 @@
+* {
+    max-width: 100%;
+    box-sizing: border-box; /* Inclut padding et border dans la largeur totale */
+  }
+
 body {
     background-color: rgb(69, 0, 79);
     font-family: Arial, sans-serif;
@@ -64,16 +69,28 @@ li {
 }
 
 .album-card {
-    width: 400%;
-    height: 150px;
-    background-color: #c4c4c4;
-    border-radius: 8px;
+    background-color: #C4C4C4;
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-    text-align: center;
+    border-radius: 10px;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.1s;
+}
+
+.album-card:hover{
+    height: 210px;
+    width: 310px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: 0.1s;
+    background-color: #d7d7d7;
+    color: rgb(92, 0, 104);
 }
 
 .album-card .icon {
@@ -84,7 +101,7 @@ li {
 .album-card .title {
     font-size: 18px;
     font-weight: bold;
-    color: black;
+
 }
 
 /* Page ajout */
@@ -153,21 +170,33 @@ li {
 
 }
 
-.photos{
+.photos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colonnes égales */
+    grid-template-columns: repeat(3, 1fr); /* 3 images par ligne */
     place-items: center;
-    gap: 30px; 
+    gap: 30px;
     margin-top: 80px;
     align-items: center;
 }
 
 .photo img {
-    width: 100%; /* Les images remplissent leur colonne */
-    height: 200px; /* Fixez une hauteur identique */
-    object-fit: cover; /* Ajuste l'image pour qu'elle remplisse sans déformation */
-  }
-  
+    width: 100%; /* L'image occupe toute la largeur de son conteneur */
+    height: auto; /* La hauteur s'ajuste pour garder les proportions */
+    object-fit: contain; /* L'image s'adapte sans être coupée */
+}
+
+@media (max-width: 1024px) {
+    .photos {
+        grid-template-columns: repeat(2, 1fr); /* 2 images par ligne sur les écrans moyens */
+    }
+}
+
+@media (max-width: 600px) {
+    .photos {
+        grid-template-columns: 1fr; /* 1 image par ligne sur les petits écrans */
+    }
+}
+
 
 
 /* fonction js */
@@ -177,12 +206,13 @@ li {
     transition: transform 0.3s ease, width 0.3s ease; /* Animation fluide */
     cursor: pointer;
     transition: 0.1s;
+    object-fit: cover;
   }
 
 .photo:hover{
     height: 510px;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
-    transition: 0.1s;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.57);
+    transition: 0.3s;
 }
   
   .photo.en-grand {
