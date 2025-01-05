@@ -15,7 +15,7 @@
 
                 <div class="supp-photo">
                 @foreach($photos as $photo)
-    <div class="photo">
+    <div class="photo-supp">
         <h3>{{ $photo->titre }}</h3>
         <img src="{{ $photo->url }}" alt="{{ $photo->titre }}">
 

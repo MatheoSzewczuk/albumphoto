@@ -151,14 +151,20 @@ li {
     margin: 0 auto;
     width: 300px;
     height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    gap: 30px;
+    margin-top: 80px;
     align-items: center;
     border-radius: 10px;
     color: black;
     font-size: 18px;
     font-weight: bold;
+}
+
+.photo-supp{
+    height: auto;
 }
 
 .supp-photo:hover {
@@ -250,6 +256,9 @@ button:hover{
     color: rgb(92, 0, 104);
 }
 
+input {
+    border-radius: 10px;
+}
 
 /* fonction js */
 
