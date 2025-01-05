@@ -25,8 +25,6 @@
         </form>
     </div>
 @endforeach
-<div class="moins-sign">-</div>
-            </div>
         </div>
     </div>
 </div>
