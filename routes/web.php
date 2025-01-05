@@ -27,4 +27,4 @@ Route::get("/ajouter/{id}", [Controlleralbums::class, 'ajouter'])->name('ajouter
 Route::post('/albums/{id}/photos/upload', [Controlleralbums::class, 'upload'])->name('photos.upload');
 Route::post('/albums/{id}/photos', [Controlleralbums::class, 'storeOrUpload'])->name('photos.storeOrUpload');
 
-Route::delete('/photos/{id}', [Controlleralbums::class, 'SupprimerPhoto'])->name('photos.SupprimerPhoto');
+Route::delete('/photos/{id}', [Controlleralbums::class, 'supprimerPhoto'])->name('photos.supprimer');

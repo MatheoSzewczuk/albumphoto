@@ -21,12 +21,15 @@ class Controlleralbums extends Controller
     
     public function detail($id)
     {
-        $album = DB::select("SELECT * FROM photos WHERE album_id=?", [$id]);
+        // Récupérer les photos liées à l'album
+        $photos = DB::select("SELECT * FROM photos WHERE album_id=?", [$id]);
+    
         return view('detail', [
-            'album' => $album,
-            'albumId' => $id, // Transmettre l'ID à la vue
+            'photos' => $photos,  // Transmettre les photos à la vue
+            'albumId' => $id,     // Transmettre l'ID de l'album à la vue
         ]);
     }
+    
 
     public function ajouter($id)
     {
@@ -48,12 +51,13 @@ class Controlleralbums extends Controller
             'album' => $album,
         ]);
     }
-    public function SupprimerPhoto($id)
+    
+    public function supprimerPhoto($id)
     {
-        // Trouver la photo par son ID
+        // Récupérer la photo par son ID
         $photo = Photo::findOrFail($id);
     
-        // Supprimer l'image du stockage (si elle est stockée localement)
+        // Supprimer le fichier si la photo est stockée localement
         if ($photo->url && Storage::exists(str_replace('/storage', 'public', $photo->url))) {
             Storage::delete(str_replace('/storage', 'public', $photo->url));
         }
@@ -64,6 +68,7 @@ class Controlleralbums extends Controller
         // Rediriger avec un message de succès
         return back()->with('success', 'Photo supprimée avec succès.');
     }
+    
     public function storeOrUpload(Request $request, $albumId)
     {
         $album = DB::table('albums')->where('id', $albumId)->first();
