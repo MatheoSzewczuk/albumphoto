@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class Controlleralbums extends Controller
 {
@@ -16,14 +17,38 @@ class Controlleralbums extends Controller
     }
 
     
+    public function detail($id)
+    {
+        $album = DB::select("SELECT * FROM photos WHERE album_id=?", [$id]);
+        return view('detail', [
+            'album' => $album,
+            'albumId' => $id, // Transmettre l'ID à la vue
+        ]);
+    }
 
-    public function detail($id){
-            $album = DB::select("SELECT * FROM photos WHERE album_id=?", [$id]);
-            return view('detail', ['album' =>$album]);
-}
+    public function ajouter($id)
+    {
+        // Récupérer l'album correspondant
+        $album = DB::table('albums')->find($id);
+    
+        // Vérifier si l'album existe
+        if (!$album) {
+            abort(404, "Album non trouvé.");
+        }
+    
+        // Récupérer tous les tags disponibles
+        $tags = DB::table('tags')->get();
+    
+        // Passer l'album et les tags à la vue
+        return view('ajouter', [
+            'albumId' => $id,
+            'tags' => $tags,
+            'album' => $album,
+        ]);
+    }
 public function SupprimerPhoto($id)
     {
-        $photo = Photo::findOrFail($id);
+        $photo = Controlleralbums::findOrFail($id);
 
         // Supprimer le fichier si la photo est stockée localement
         if ($photo->url && Storage::exists(str_replace('/storage', 'public', $photo->url))) {
@@ -36,7 +61,7 @@ public function SupprimerPhoto($id)
 
     public function storeOrUpload(Request $request, $albumId)
 {
-    $album = Album::findOrFail($albumId);
+    $album = Controlleralbums::findOrFail($albumId);
 
     $request->validate([
         'titre' => 'required|string|max:255',

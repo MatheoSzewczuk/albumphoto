@@ -7,7 +7,7 @@
             <input type="text" placeholder="Rechercher par tag/utilisateur">
             </div>
             <div class="suppajt">
-            <a href="">
+            <a href="{{ route('ajouter', ['id' => $albumId]) }}">
                 <div class="add-photo">
                 <p>Ajouter une photo</a></p>
                 <div class="plus-sign">+</div>
