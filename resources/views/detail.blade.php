@@ -37,6 +37,7 @@
 <div class="allphoto">
 <div class="photos">
 @foreach ($photos as $photo)
+<h3>{{ $photo->titre }}</h3>
 <img class="photo" src="{{$photo -> url}}">
 @endforeach
 </div>
