@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Photo;
+
 
 class Controlleralbums extends Controller
 {
@@ -46,49 +48,64 @@ class Controlleralbums extends Controller
             'album' => $album,
         ]);
     }
-public function SupprimerPhoto($id)
+    public function SupprimerPhoto($id)
     {
-        $photo = Controlleralbums::findOrFail($id);
-
-        // Supprimer le fichier si la photo est stockée localement
+        // Trouver la photo par son ID
+        $photo = Photo::findOrFail($id);
+    
+        // Supprimer l'image du stockage (si elle est stockée localement)
         if ($photo->url && Storage::exists(str_replace('/storage', 'public', $photo->url))) {
             Storage::delete(str_replace('/storage', 'public', $photo->url));
         }
-
+    
+        // Supprimer la photo de la base de données
         $photo->delete();
+    
+        // Rediriger avec un message de succès
         return back()->with('success', 'Photo supprimée avec succès.');
     }
-
     public function storeOrUpload(Request $request, $albumId)
-{
-    $album = Controlleralbums::findOrFail($albumId);
-
-    $request->validate([
-        'titre' => 'required|string|max:255',
-        'note' => 'nullable|integer|min:0|max:5',
-        'url' => 'required|url',
-        'tags' => 'array|nullable',
-        'tags.*' => 'exists:tags,id',
-    ]);
-
-    $photo = new Photo();
-    $photo->titre = $request->input('titre');
-    $photo->note = $request->input('note');
-    $photo->album_id = $album->id;
-    $photo->url = $request->input('url'); 
-    $photo->save();
-
-    if ($request->filled('tags')) {
-        $photo->tags()->attach($request->input('tags'));
+    {
+        $album = DB::table('albums')->where('id', $albumId)->first();
+    
+        $request->validate([
+            'titre' => 'required|string|max:255',
+            'note' => 'nullable|integer|min:0|max:5',
+            'url' => 'required|url',
+            'tags' => 'array|nullable',
+            'tags.*' => 'exists:tags,id',
+        ]);
+    
+        // Créer une nouvelle photo
+        $photo = new Photo();
+        $photo->titre = $request->input('titre');
+        $photo->note = $request->input('note');
+        $photo->album_id = $album->id;
+        $photo->url = $request->input('url');
+        $photo->save();
+    
+        // Si des tags sont sélectionnés, on les associe à la photo
+        if ($request->filled('tags')) {
+            foreach ($request->input('tags') as $tagId) {
+                DB::table('possede_tag')->insert([
+                    'photo_id' => $photo->id,
+                    'tag_id' => $tagId,
+                ]);
+            }
+        }
+    
+        // Si un nouveau tag est ajouté
+        if ($request->filled('new_tag')) {
+            $newTag = DB::table('tags')->insertGetId(['nom' => $request->input('new_tag')]);
+            DB::table('possede_tag')->insert([
+                'photo_id' => $photo->id,
+                'tag_id' => $newTag,
+            ]);
+        }
+    
+        return redirect()->route('albums.photos', ['id' => $albumId]);
     }
-
-    if ($request->filled('new_tag')) {
-        $newTag = Tag::create(['nom' => $request->input('new_tag')]);
-        $photo->tags()->attach($newTag->id);
-    }
-
-    return redirect()->route('albums.photos', ['id' => $albumId]);
-}
+    
 }
 
 ?>

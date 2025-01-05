@@ -12,9 +12,10 @@
                 <p>Ajouter une photo</a></p>
                 <div class="plus-sign">+</div>
             </div>
-                <a href="">
+
                 <div class="supp-photo">
-                <p>Supprimer une photo</a></p>
+
+
                 <div class="moins-sign">-</div>
             </div>
         </div>
