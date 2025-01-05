@@ -234,11 +234,20 @@ li {
 }
 
 button {
-    background-color: white;
+    background-color: rgb(219, 156, 224);
     border-radius: 20px;
     height: 30px;
     width: 100px;
     border-color: rgb(167, 0, 189);
+}
+
+button:hover{
+    height: 35px;
+    width: 105px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: 0.1s;
+    background-color: #ffffff;
+    color: rgb(92, 0, 104);
 }
 
 
