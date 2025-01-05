@@ -18,7 +18,6 @@
     <div class="photo-supp">
         <h3>{{ $photo->titre }}</h3>
         <img src="{{ $photo->url }}" alt="{{ $photo->titre }}">
-
         <form action="{{ route('photos.supprimer', $photo->id) }}" method="POST">
             @csrf
             @method('DELETE')
@@ -26,8 +25,7 @@
         </form>
     </div>
 @endforeach
-
-                <div class="moins-sign">-</div>
+<div class="moins-sign">-</div>
             </div>
         </div>
     </div>

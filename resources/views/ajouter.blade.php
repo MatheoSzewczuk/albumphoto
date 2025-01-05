@@ -41,6 +41,4 @@
         </ul>
     </div>
 @endif
-
-
-    @endsection
+@endsection
