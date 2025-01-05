@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get("/albums", [Controlleralbums::class, 'albums'])->name('albums');
-
+Route::get('/albums/{id}/photos', [Controlleralbums::class, 'detail'])->name('albums.photos');
 Route::get("/detail/{id}", [Controlleralbums::class, 'detail'])->name('detail');
 Route::get("/ajouter/{id}", [Controlleralbums::class, 'ajouter'])->name('ajouter');
 
