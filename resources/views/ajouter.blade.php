@@ -2,8 +2,8 @@
 
 @section("contenu")
 
-<h3>Ajouter une photo</h3>
-    <div>
+    <div class="ajouter">
+    <h3>Ajouter une photo</h3>
         <form action="{{ route('photos.storeOrUpload', ['id' => $album->id]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="titre">Titre :</label>
