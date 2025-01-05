@@ -19,7 +19,6 @@
         <h3>{{ $photo->titre }}</h3>
         <img src="{{ $photo->url }}" alt="{{ $photo->titre }}">
 
-        <!-- Formulaire pour supprimer la photo -->
         <form action="{{ route('photos.supprimer', $photo->id) }}" method="POST">
             @csrf
             @method('DELETE')
@@ -37,7 +36,7 @@
 <div class="allphoto">
 <div class="photos">
 @foreach ($photos as $photo)
-<h3>{{ $photo->titre }}</h3>
+<!-- <h3>{{ $photo->titre }}</h3> -->
 <img class="photo" src="{{$photo -> url}}">
 @endforeach
 </div>
