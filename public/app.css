@@ -1,6 +1,6 @@
 * {
     max-width: 100%;
-    box-sizing: border-box; /* Inclut padding et border dans la largeur totale */
+    box-sizing: border-box;
   }
 
 body {
@@ -137,6 +137,15 @@ li {
     font-weight: bold;
 }
 
+.add-photo:hover {
+    height: 210px;
+    width: 310px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: 0.1s;
+    background-color: #d7d7d7;
+    color: rgb(92, 0, 104);
+}
+
 .supp-photo {
     background-color: #C4C4C4;
     margin: 0 auto;
@@ -172,7 +181,7 @@ li {
 
 .photos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 images par ligne */
+    grid-template-columns: repeat(3, 1fr);
     place-items: center;
     gap: 30px;
     margin-top: 80px;
@@ -180,20 +189,20 @@ li {
 }
 
 .photo img {
-    width: 100%; /* L'image occupe toute la largeur de son conteneur */
-    height: auto; /* La hauteur s'ajuste pour garder les proportions */
-    object-fit: contain; /* L'image s'adapte sans être coupée */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 @media (max-width: 1024px) {
     .photos {
-        grid-template-columns: repeat(2, 1fr); /* 2 images par ligne sur les écrans moyens */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 600px) {
     .photos {
-        grid-template-columns: 1fr; /* 1 image par ligne sur les petits écrans */
+        grid-template-columns: 1fr;
     }
 }
 
@@ -202,8 +211,8 @@ li {
 /* fonction js */
 
 .photo {
-    height: 500px; /* Taille normale */
-    transition: transform 0.3s ease, width 0.3s ease; /* Animation fluide */
+    height: 500px; 
+    transition: transform 0.3s ease, width 0.3s ease;
     cursor: pointer;
     transition: 0.1s;
     object-fit: cover;
@@ -216,14 +225,14 @@ li {
 }
   
   .photo.en-grand {
-    position: fixed; /* Fixe l'image en plein écran sur la fenêtre */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* 100% de la largeur de la fenêtre */
-    height: 100vh; /* 100% de la hauteur de la fenêtre */
-    background-color: rgba(0, 0, 0, 0.8); /* Fond sombre semi-transparent */
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Assure que l'image soit au-dessus des autres éléments */
+    z-index: 1000;
     object-fit: contain;
   }
